@@ -6,12 +6,12 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 class node {
-    String minemonic;
+    String mneumonic;
     int op_code;
     node next;
 
     node(String a, int b) {
-        minemonic = a;
+        mneumonic = a;
         op_code = b;
 
     }
@@ -99,7 +99,7 @@ class write_read_table {
     public void display(node head) {
 
         while (head != null) {
-            System.out.println("minemoni: " + head.minemonic + " opcode: " + head.op_code);
+            System.out.println("minemoni: " + head.mneumonic + " opcode: " + head.op_code);
 
             head = head.next;
         }
@@ -281,7 +281,7 @@ class write_read_table {
     public boolean present(node table, String src) {
         while (table != null) {
 
-            if (table.minemonic.equals(src)) {
+            if (table.mneumonic.equals(src)) {
                 return true;
             }
             table = table.next;
@@ -292,7 +292,7 @@ class write_read_table {
     public int ret_op_code(node table, String src) {
         int a = 0;
         while (table != null) {
-            if (table.minemonic.equals(src)) {
+            if (table.mneumonic.equals(src)) {
                 a = table.op_code;
             }
             table = table.next;
@@ -362,7 +362,7 @@ class write_read_table {
                     op_code = ret_op_code(table_dc, src.directive);
                     node temp = symbol;
                     while (temp != null) {
-                        if (temp.minemonic.equals(src.label)) {
+                        if (temp.mneumonic.equals(src.label)) {
                             temp.op_code = a;
                         }
                         temp = temp.next;
@@ -488,9 +488,9 @@ class write_read_table {
         System.out.println("Literal"+space.repeat(5) + "address" );
         
         while (head != null) {
-            int lit_leng = head.minemonic.length();
+            int lit_leng = head.mneumonic.length();
             
-            System.out.println(head.minemonic+space.repeat(12-lit_leng) + head.op_code+" ");
+            System.out.println(head.mneumonic+space.repeat(12-lit_leng) + head.op_code+" ");
 
             head = head.next;
         }
@@ -502,9 +502,9 @@ class write_read_table {
         System.out.println("Symbol"+space.repeat(5) + "address" );
         
         while (head != null) {
-            int lit_leng = head.minemonic.length();
+            int lit_leng = head.mneumonic.length();
             
-            System.out.println(head.minemonic+space.repeat(11-lit_leng) + head.op_code+" ");
+            System.out.println(head.mneumonic+space.repeat(11-lit_leng) + head.op_code+" ");
 
             head = head.next;
         }
